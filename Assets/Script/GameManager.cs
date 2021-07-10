@@ -17,11 +17,13 @@ public class GameManager : MonoBehaviour
     {
         AWin.SetActive(false);
         communicationSO.gameEnd = true;
+        Debug.Log("AWin");
     }
     public void BWinGame()
     {
         BWin.SetActive(false);
         communicationSO.gameEnd = true;
+        Debug.Log("BWin");
     }
 
     public void Restart()
@@ -44,7 +46,14 @@ public class GameManager : MonoBehaviour
     {
         if (round >= roundNum)
         {
-            //endgame;
+            if (train.LeftOrRight())
+            {
+                AWinGame();
+            }
+            else
+            {
+                BWinGame();
+            }
 
             communicationSO.gameEnd = true;
         }
