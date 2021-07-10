@@ -13,6 +13,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject AWin;
     [SerializeField] private GameObject BWin;
 
+    public void AWinGame()
+    {
+        AWin.SetActive(false);
+    }
+    public void BWinGame()
+    {
+        BWin.SetActive(false);
+    }
+
     public void Restart()
     {
         EditorSceneManager.LoadScene(1);
