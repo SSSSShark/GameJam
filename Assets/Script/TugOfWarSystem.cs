@@ -32,11 +32,11 @@ public class TugOfWarSystem : MonoBehaviour
                 timeAcc = 0;
                 communicationSO.tugOfWar = true;
             }
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 tugging++;
             }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.KeypadPeriod))
             {
                 tugging--;
             }
