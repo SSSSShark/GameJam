@@ -1101,6 +1101,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &813498331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1646538349961108260, guid: 6674203aa2427124d884e1f3c4f648ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1509327438}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e40bd45c446f6ad41bfbf0cc6a2844b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &831410561
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,11 +2053,26 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 1646538349954786251, guid: 6674203aa2427124d884e1f3c4f648ab,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 47.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646538349954786251, guid: 6674203aa2427124d884e1f3c4f648ab,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.78
+      objectReference: {fileID: 0}
     - target: {fileID: 1646538349954786253, guid: 6674203aa2427124d884e1f3c4f648ab,
         type: 3}
       propertyPath: speed
       value: 7.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1646538349954786253, guid: 6674203aa2427124d884e1f3c4f648ab,
+        type: 3}
+      propertyPath: nextTrace
+      value: 
+      objectReference: {fileID: 813498331}
     - target: {fileID: 1646538349954786253, guid: 6674203aa2427124d884e1f3c4f648ab,
         type: 3}
       propertyPath: communicationSO

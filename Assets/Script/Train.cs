@@ -18,11 +18,11 @@ public class Train : MonoBehaviour
     CameraFlow cameraFlow;
     public float speed = 10;
     float speedOld;
-    Trace nextTrace;
+    public Trace nextTrace;
     Direction nextDir = Direction.random;
     EnergySystem energySystem;
     void Awake() {
-        nextTrace = FindObjectOfType<Trace>();
+        //nextTrace = FindObjectOfType<Trace>();
         cameraFlow = FindObjectOfType<CameraFlow>();
         energySystem = FindObjectOfType<EnergySystem>();
         me = this;
@@ -41,7 +41,7 @@ public class Train : MonoBehaviour
             if(communicationSO.tugOfWar)
                 Stop();
             else
-                Stop(1);
+                Stop(0.5f);
         }
         else
         {
@@ -92,8 +92,12 @@ public class Train : MonoBehaviour
 
     void ListenToTrace()
     {
-        if((nextTrace.transform.position - transform.position).magnitude < 0.01)
-            SetTarget(nextTrace.GetNext(nextDir));
+        if((nextTrace.transform.position - transform.position).magnitude < 0.07)
+            {
+                SetTarget(nextTrace.GetNext(nextDir));
+                //transform.position = nextTrace.transform.position;
+            }
+
     }
 
     public void Stop(float s = 0)
