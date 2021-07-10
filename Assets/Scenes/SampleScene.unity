@@ -663,6 +663,7 @@ MonoBehaviour:
   otherTraces:
   - {fileID: 697635278}
   - {fileID: 517607413}
+  - {fileID: 1186712215}
 --- !u!65 &334586739
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -887,6 +888,7 @@ MonoBehaviour:
   otherTraces:
   - {fileID: 213607920}
   - {fileID: 1159053028}
+  - {fileID: 1489522268}
 --- !u!65 &501942305
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1125,6 +1127,8 @@ MonoBehaviour:
   otherTraces:
   - {fileID: 1489522268}
   - {fileID: 334586738}
+  - {fileID: 2126816900}
+  - {fileID: 1159053028}
 --- !u!65 &517607414
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1702,6 +1706,7 @@ MonoBehaviour:
   otherTraces:
   - {fileID: 213607920}
   - {fileID: 1159053028}
+  - {fileID: 235247236}
 --- !u!65 &753040161
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2077,6 +2082,8 @@ MonoBehaviour:
   otherTraces:
   - {fileID: 501942304}
   - {fileID: 753040160}
+  - {fileID: 517607413}
+  - {fileID: 503229815}
 --- !u!65 &1159053029
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2460,6 +2467,7 @@ MonoBehaviour:
   otherTraces:
   - {fileID: 697635278}
   - {fileID: 517607413}
+  - {fileID: 501942304}
 --- !u!65 &1489522269
 BoxCollider:
   m_ObjectHideFlags: 0
