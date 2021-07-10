@@ -1923,6 +1923,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1617066434}
   - component: {fileID: 1617066436}
+  - component: {fileID: 1617066435}
   m_Layer: 5
   m_Name: A
   m_TagString: Untagged
@@ -1952,6 +1953,22 @@ RectTransform:
   m_AnchoredPosition: {x: -622, y: 195}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1617066435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617066433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fcec4ea8e9e5644e9ca9dd8a9b0fcfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  communicationSO: {fileID: 11400000, guid: b3a44f9cb9839e84a8e322d1a447ce69, type: 2}
+  up: {fileID: 340877259}
+  left: {fileID: 553409039}
+  right: {fileID: 866983584}
 --- !u!222 &1617066436
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1970,6 +1987,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1629336252}
   - component: {fileID: 1629336254}
+  - component: {fileID: 1629336253}
   m_Layer: 5
   m_Name: B
   m_TagString: Untagged
@@ -1999,6 +2017,22 @@ RectTransform:
   m_AnchoredPosition: {x: 622, y: 195}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1629336253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629336251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fcec4ea8e9e5644e9ca9dd8a9b0fcfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  communicationSO: {fileID: 11400000, guid: b3a44f9cb9839e84a8e322d1a447ce69, type: 2}
+  up: {fileID: 1180484075}
+  left: {fileID: 831410561}
+  right: {fileID: 30653078}
 --- !u!222 &1629336254
 CanvasRenderer:
   m_ObjectHideFlags: 0
