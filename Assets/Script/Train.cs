@@ -21,6 +21,9 @@ public class Train : MonoBehaviour
     public Trace nextTrace;
     Direction nextDir = Direction.random;
     EnergySystem energySystem;
+    bool competeFlag = false;
+    float speedTimer = 0;
+    public float aTime = 0.7f;
     void Awake() {
         //nextTrace = FindObjectOfType<Trace>();
         cameraFlow = FindObjectOfType<CameraFlow>();
@@ -43,11 +46,17 @@ public class Train : MonoBehaviour
             if(communicationSO.tugOfWar)
                 Stop();
             else
-                Stop(0.5f);
+                Stop(1.0f);
+            competeFlag = true;
         }
         else
         {
-            ResetSpeed();
+            if(competeFlag)
+            {
+                ResetSpeed();
+                competeFlag = false;
+            }
+
         }
 
     }
@@ -110,8 +119,21 @@ public class Train : MonoBehaviour
 
     public void ResetSpeed()
     {
+        StartCoroutine(SpeedAdd());
+    }
+
+
+    IEnumerator SpeedAdd()
+    {
+        for(speedTimer = 0; speedTimer < aTime; speedTimer += Time.deltaTime)
+        {
+            speed = Mathf.Lerp(1, 8, speedTimer);
+            Debug.Log(speedTimer);
+            yield return null;
+        }
         speed = speedOld;
     }
+
 
     public bool LeftOrRight()
     {

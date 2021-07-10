@@ -1496,8 +1496,8 @@ MonoBehaviour:
   playerBKeyHint: {fileID: 1617066433}
   playerAStatus: 0
   playerBStatus: 0
-  competeTime: 1.2
-  showTime: 0.8
+  competeTime: 1.5
+  showTime: 0.7
   communitcationSO: {fileID: 11400000, guid: b3a44f9cb9839e84a8e322d1a447ce69, type: 2}
   train: {fileID: 0}
 --- !u!4 &1035760924
@@ -1906,6 +1906,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846267504102158772, guid: 6674203aa2427124d884e1f3c4f648ab,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919780105925237360, guid: 6674203aa2427124d884e1f3c4f648ab,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6674203aa2427124d884e1f3c4f648ab, type: 3}
