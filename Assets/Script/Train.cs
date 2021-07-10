@@ -92,7 +92,7 @@ public class Train : MonoBehaviour
 
     void ListenToTrace()
     {
-        if((nextTrace.transform.position - transform.position).magnitude < 0.07)
+        if((nextTrace.transform.position - transform.position).magnitude < 0.1)
             {
                 SetTarget(nextTrace.GetNext(nextDir));
                 //transform.position = nextTrace.transform.position;
