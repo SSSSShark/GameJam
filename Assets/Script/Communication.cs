@@ -24,4 +24,7 @@ public class Communication : ScriptableObject
 
     public bool tugSystemToGM;
     public int tugResult;
+
+    public bool competeEnergy;
+    public bool tugOfWar;
 }

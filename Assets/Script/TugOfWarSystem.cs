@@ -30,6 +30,7 @@ public class TugOfWarSystem : MonoBehaviour
                 tugUI.SetActive(true);
                 tugging = 0;
                 timeAcc = 0;
+                communicationSO.tugOfWar = true;
             }
             if (Input.GetKeyDown(KeyCode.W))
             {
@@ -45,6 +46,7 @@ public class TugOfWarSystem : MonoBehaviour
             {
                 communicationSO.tugResult = (tugging > 0) ? 1 : ((tugging < 0) ? -1 : 0);
                 communicationSO.tugSystemToGM = true;
+                communicationSO.tugOfWar = false;
                 communicationSO.GMToTugSystem = false;
                 tugUI.SetActive(false);
             }

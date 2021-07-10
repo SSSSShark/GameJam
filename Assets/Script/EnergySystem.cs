@@ -15,12 +15,15 @@ public class EnergySystem : MonoBehaviour
     [Header("玩家B按键提示")]
     public GameObject playerBKeyHint;
     private bool startFlag;
+    private bool showFlag;
     [SerializeField] private int playerAStatus;
     [SerializeField] private int playerBStatus;
     private bool[] availableDirect;//四个布尔值，0前，1下，2左，3右
     [Header("拼气时间")]
-    [SerializeField] private float time = 2f;
-    private float timeAccu;
+    [SerializeField] private float competeTime = 1.2f;
+    private float competeTimeAcc;
+    [SerializeField] private float showTime = 0.8f;
+    private float showTimeAcc;
 
     [SerializeField] private Communication communitcationSO;
     [SerializeField] private Train train;
@@ -48,7 +51,7 @@ public class EnergySystem : MonoBehaviour
     public void StartEnergyCompete(bool[] dirct)
     {
         startFlag = true;
-        timeAccu = 0f;
+        competeTimeAcc = 0f;
         availableDirect = dirct;
         if (!playerAKeyHint.activeSelf)
         {
@@ -57,12 +60,13 @@ public class EnergySystem : MonoBehaviour
             communitcationSO.playerABet = communitcationSO.playerBBet = 0;
             communitcationSO.playerADirect = communitcationSO.playerBDirect = 4;
         }
+        communitcationSO.competeEnergy = true;
     }
 
     public void StartEnergyCompeteTest()
     {
         startFlag = true;
-        timeAccu = 0f;
+        competeTimeAcc = 0f;
         availableDirect[0]=true;
         availableDirect[1] = true;
         availableDirect[2] = true;
@@ -74,6 +78,7 @@ public class EnergySystem : MonoBehaviour
             communitcationSO.playerABet = communitcationSO.playerBBet = 0;
             communitcationSO.playerADirect = communitcationSO.playerBDirect = 4;
         }
+        communitcationSO.competeEnergy = true;
     }
 
     public void EndEnergyCompete()
@@ -82,6 +87,12 @@ public class EnergySystem : MonoBehaviour
         communitcationSO.energySystemToGM = true;
         playerAEnergy -= communitcationSO.playerABet;
         playerBEnergy -= communitcationSO.playerBBet;
+    }
+
+    public void EndShowResult()
+    {
+        showFlag = false;
+        communitcationSO.competeEnergy = false;
     }
 
     void ListenKey(KeyCode k,int direct,bool player)//player=true为A，否则为B
@@ -146,6 +157,7 @@ public class EnergySystem : MonoBehaviour
     {
         playerAEnergy = playerBEnergy = initEnergy;
         startFlag = false;
+        showFlag = false;
         availableDirect = new bool[4];
         playerAStatus = playerBStatus = 0;
         communitcationSO.energySystemToGM = false;
@@ -205,9 +217,9 @@ public class EnergySystem : MonoBehaviour
                     communitcationSO.playerBBet = 5;
                 }
             }
-            timeAccu += Time.deltaTime;
+            competeTimeAcc += Time.deltaTime;
             {
-                if (timeAccu >= time || communitcationSO.playerABet == 5 || communitcationSO.playerBBet == 5)
+                if (competeTimeAcc >= competeTime || communitcationSO.playerABet == 5 || communitcationSO.playerBBet == 5)
                 {
                     EndEnergyCompete();
                 }
@@ -265,6 +277,16 @@ public class EnergySystem : MonoBehaviour
             communitcationSO.GMToEnergySystem = false;
             playerAKeyHint.SetActive(false);
             playerBKeyHint.SetActive(false);
+            showFlag = true;
+            showTimeAcc = 0;
+        }
+        else if (showFlag)
+        {
+            showTimeAcc += Time.deltaTime;
+            if (showTimeAcc >= showTime)
+            {
+                EndShowResult();
+            }
         }
     }
 
