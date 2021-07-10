@@ -15,6 +15,7 @@ public class Train : MonoBehaviour
 
     CameraFlow cameraFlow;
     public float speed = 10;
+    float speedOld;
     Trace nextTrace;
     Direction nextDir = Direction.random;
     EnergySystem energySystem;
@@ -26,6 +27,7 @@ public class Train : MonoBehaviour
     }
 
     void Start() {
+        speedOld = speed;
         SetTarget(nextTrace);
     }
     void Update()
@@ -43,7 +45,7 @@ public class Train : MonoBehaviour
     public void SetDir(Direction dir)
     {
         nextDir = dir;
-        speed = 10;
+        speed = speedOld;
     }
     void SetTarget(Trace target)
     {
@@ -54,7 +56,23 @@ public class Train : MonoBehaviour
 
     public void StartEnergyCompete()
     {
-        bool[] button = {true, false, true, true};
+        bool[] button = {false, false, false, false};
+        List<Direction> canGoes = nextTrace.GetCanGo();
+        foreach(var canGo in canGoes)
+        {
+            switch(canGo)
+            {
+                case Direction.forward:
+                    button[0] = true;
+                    break;
+                case Direction.left:
+                    button[2] = true;
+                    break;
+                case Direction.right:
+                    button[3]= true;
+                    break;
+            }
+        }
         energySystem.StartEnergyCompete(button);
     }
 
