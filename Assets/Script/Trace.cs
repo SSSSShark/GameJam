@@ -18,20 +18,22 @@ public class Trace : MonoBehaviour
         Vector3.back,
         Vector3.forward
     };
-
-    [SerializeField]
-    public List<Trace> otherTraces;
     private List<KeyValuePair<Direction, Trace>> others;
 
     void Start() {
         others = new List<KeyValuePair<Direction, Trace>>();
-        foreach(var oTrace in otherTraces)
+        for(int i = 0 ; i < 4; i++)
         {
-            Vector3 keyVector = (oTrace.transform.position - transform.position).normalized;
-            Direction dirKey = VectorToDirection(keyVector);
-            Trace value = oTrace;
-            KeyValuePair<Direction, Trace> vt = new KeyValuePair<Direction, Trace>(dirKey, value);
-            others.Add(vt);
+            if(Physics.Raycast(transform.position, directionVectors[i], out RaycastHit hit, 10000))
+            {
+                Trace hitTrace = hit.transform.GetComponent<Trace>();
+                if(hitTrace)
+                {
+                    Direction dirKey = VectorToDirection(directionVectors[i]);
+                    KeyValuePair<Direction, Trace> vt = new KeyValuePair<Direction, Trace>(dirKey, hitTrace);
+                    others.Add(vt);
+                }
+            }
         }
     }
 
