@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,11 +9,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int roundNum = 20;
     [SerializeField] Communication communicationSO;
     int round;
+    [SerializeField] private Train train;
+    [SerializeField] private GameObject AWin;
+    [SerializeField] private GameObject BWin;
+
+    public void Restart()
+    {
+        EditorSceneManager.LoadScene(1);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         round = 0;
+        train = FindObjectOfType<Train>();
+        AWin.SetActive(false);
+        BWin.SetActive(false);
     }
 
     // Update is called once per frame
@@ -51,7 +63,7 @@ public class GameManager : MonoBehaviour
                 communicationSO.playerBReturn = (communicationSO.result < 0) ? 0 : Mathf.Max(0, communicationSO.playerBBet - 1);
                 communicationSO.GMToEnergySystem = true;
             }
-            round--;
+            round++;
             communicationSO.energySystemToGM = false;
         }
         if (communicationSO.tugSystemToGM)
