@@ -59,7 +59,6 @@ public class Trace : MonoBehaviour
         if(dir == Train.Direction.random)
         {
             Train.Direction rand = (Train.Direction)(Random.Range(0, 3));
-            Debug.Log(rand);
             return TrunTo(from, rand);
         }
         Direction to = Direction.north;
