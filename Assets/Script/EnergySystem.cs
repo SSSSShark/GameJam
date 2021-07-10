@@ -15,7 +15,7 @@ public class EnergySystem : MonoBehaviour
     [Header("玩家B按键提示")]
     public GameObject playerBKeyHint;
     private bool startFlag;
-    private bool showFlag;
+    public bool showFlag;
     [SerializeField] private int playerAStatus;
     [SerializeField] private int playerBStatus;
     private bool[] availableDirect;//四个布尔值，0前，1下，2左，3右
