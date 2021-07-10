@@ -14,7 +14,7 @@ public class Train : MonoBehaviour
         right,
         random
     }
-
+    public List<Trace> centerPoints = new List<Trace>();
     CameraFlow cameraFlow;
     public float speed = 10;
     float speedOld;
@@ -35,6 +35,7 @@ public class Train : MonoBehaviour
     }
     void Update()
     {
+        if(communicationSO.gameEnd) return;
         GoForward();
         ListenToTrace();
         if(communicationSO.competeEnergy || communicationSO.tugOfWar)
@@ -110,5 +111,12 @@ public class Train : MonoBehaviour
     public void ResetSpeed()
     {
         speed = speedOld;
+    }
+
+    public bool LeftOrRight()
+    {
+        Vector3 centerVector = centerPoints[1].transform.position - centerPoints[0].transform.position;
+        Vector3 toTrain = centerPoints[1].transform.position - transform.position;
+        return Vector3.Cross(centerVector, toTrain).y > 0;
     }
 }

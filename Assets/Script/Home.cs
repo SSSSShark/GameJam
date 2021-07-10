@@ -4,8 +4,21 @@ using UnityEngine;
 
 public class Home : MonoBehaviour
 {
-    int playerTag;
+    public enum Team{
+        A,
+        B
+    }
+    public Team team;
     void OnTriggerEnter(Collider other) {
-        //GameManager.Win(playerTag);
+        if(team == Team.A)
+        {
+            GameManager gm = FindObjectOfType<GameManager>();
+            gm.AWinGame();
+        }
+        else
+        {
+            GameManager gm = FindObjectOfType<GameManager>();
+            gm.BWinGame();
+        }
     }
 }
