@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TestText : MonoBehaviour
+public class TestTug : MonoBehaviour
 {
     [SerializeField] Communication communitcationSO;
-    [SerializeField] bool player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,6 @@ public class TestText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<Text>().text = (player) ? communitcationSO.playerADirect.ToString() + communitcationSO.playerABet.ToString() 
-            : communitcationSO.playerBDirect.ToString() + communitcationSO.playerBBet.ToString();
+        gameObject.GetComponent<Text>().text = (communitcationSO.tugRatio * 10 - 10).ToString();
     }
 }

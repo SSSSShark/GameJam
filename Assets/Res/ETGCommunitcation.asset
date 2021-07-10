@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 100a38442af2a28498e28015bcecaab7, type: 3}
-  m_Name: Communitcation
+  m_Name: ETGCommunitcation
   m_EditorClassIdentifier: 
   playerADirect: 0
   playerABet: 0

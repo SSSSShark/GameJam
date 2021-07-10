@@ -6,18 +6,22 @@ public class GameManager : MonoBehaviour
 {
     [Header("最大回合数")]
     [SerializeField] private int roundNum = 20;
-    [SerializeField] Communitcation communicationSO;
+    [SerializeField] Communication communicationSO;
+    int round;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        round = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (round >= roundNum)
+        {
+            //endgame;
+        }
     }
     private void LateUpdate()
     {
@@ -37,7 +41,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    //通知拔河系统
+                    communicationSO.GMToTugSystem = true;
                 }
             }
             else
@@ -47,8 +51,25 @@ public class GameManager : MonoBehaviour
                 communicationSO.playerBReturn = (communicationSO.result < 0) ? 0 : Mathf.Max(0, communicationSO.playerBBet - 1);
                 communicationSO.GMToEnergySystem = true;
             }
+            round--;
+            communicationSO.energySystemToGM = false;
         }
-        communicationSO.energySystemToGM = false;
+        if (communicationSO.tugSystemToGM)
+        {
+            communicationSO.result = communicationSO.tugResult;
+            if (communicationSO.result != 0)
+            {
+                communicationSO.playerAReturn = (communicationSO.result > 0) ? 0 : Mathf.Max(0, communicationSO.playerABet - 1);
+                communicationSO.playerBReturn = (communicationSO.result < 0) ? 0 : Mathf.Max(0, communicationSO.playerBBet - 1);
+            }
+            else
+            {
+                communicationSO.playerAReturn = communicationSO.playerABet;
+                communicationSO.playerBReturn = communicationSO.playerBBet;
+            }
+            communicationSO.GMToEnergySystem = true;
+            communicationSO.tugSystemToGM = false;
+        }
     }
 
     public void ReturnFromTugOfWar(int result)

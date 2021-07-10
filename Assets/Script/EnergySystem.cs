@@ -22,7 +22,7 @@ public class EnergySystem : MonoBehaviour
     [SerializeField] private float time = 2f;
     private float timeAccu;
 
-    [SerializeField] private Communitcation communitcationSO;
+    [SerializeField] private Communication communitcationSO;
 
     public void AddEnergy(int n, bool player)
     {

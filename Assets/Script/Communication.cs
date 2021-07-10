@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName ="ScriptableObject/Communication",fileName ="CommunitcationSO")]
-public class Communitcation : ScriptableObject
+public class Communication : ScriptableObject
 {
     public bool energySystemToGM;
     public int playerADirect;
@@ -18,4 +18,10 @@ public class Communitcation : ScriptableObject
     public bool playerBisBet;
     public int playerBReturn;
 
+    public bool GMToTugSystem;
+
+    public float tugRatio;
+
+    public bool tugSystemToGM;
+    public int tugResult;
 }
