@@ -16,6 +16,6 @@ public class TestTug : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<Text>().text = (communitcationSO.tugRatio * 10 - 10).ToString();
+        gameObject.GetComponent<Text>().text = (communitcationSO.tugRatio * 20 - 10).ToString();
     }
 }

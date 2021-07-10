@@ -11,7 +11,7 @@ public class TugOfWarSystem : MonoBehaviour
     [Space(30)]
     [SerializeField] GameObject tugUI;
     [SerializeField] Communication communicationSO;
-    private int tugging;
+    [SerializeField] private int tugging;
     private float timeAcc;
 
     // Start is called before the first frame update
