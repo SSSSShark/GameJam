@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Train : MonoBehaviour
 {
+    [SerializeField]
+    Communication communicationSO;
     static public Train me;
     public enum Direction
     {
@@ -34,6 +36,18 @@ public class Train : MonoBehaviour
     {
         GoForward();
         ListenToTrace();
+        if(communicationSO.competeEnergy || communicationSO.tugOfWar)
+        {
+            if(communicationSO.tugOfWar)
+                Stop();
+            else
+                Stop(1);
+        }
+        else
+        {
+            ResetSpeed();
+        }
+
     }
 
     void GoForward()
@@ -80,5 +94,16 @@ public class Train : MonoBehaviour
     {
         if((nextTrace.transform.position - transform.position).magnitude < 0.01)
             SetTarget(nextTrace.GetNext(nextDir));
+    }
+
+    public void Stop(float s = 0)
+    {
+        // speedOld = speed;
+        speed = s;
+    }
+
+    public void ResetSpeed()
+    {
+        speed = speedOld;
     }
 }
