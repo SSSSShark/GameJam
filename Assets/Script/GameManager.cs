@@ -34,7 +34,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        round = 0;
+        communicationSO.round = round = 0;
+        communicationSO.roundMax = roundNum;
         train = FindObjectOfType<Train>();
         AWin.SetActive(false);
         BWin.SetActive(false);
@@ -87,6 +88,7 @@ public class GameManager : MonoBehaviour
                 communicationSO.GMToEnergySystem = true;
             }
             round++;
+            communicationSO.round = round;
             communicationSO.energySystemToGM = false;
         }
         if (communicationSO.tugSystemToGM)

@@ -33,4 +33,7 @@ public class Communication : ScriptableObject
     public Sprite[] arrow;
 
     public bool gameEnd;
+
+    public int roundMax;
+    public int round;
 }
