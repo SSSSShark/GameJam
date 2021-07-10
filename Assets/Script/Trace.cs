@@ -135,6 +135,7 @@ public class Trace : MonoBehaviour
     protected virtual void OnTriggerEnter(Collider other) {
         Debug.Log("cube enter");
         Train.me.StartEnergyCompete();
+        Train.me.speed = 0;
     }
     private Vector3 Rotate(Vector3 source, Vector3 axis, float angle)
     {

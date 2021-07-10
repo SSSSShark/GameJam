@@ -14,7 +14,7 @@ public class Train : MonoBehaviour
     }
 
     CameraFlow cameraFlow;
-    public float speed;
+    public float speed = 10;
     Trace nextTrace;
     Direction nextDir = Direction.random;
     EnergySystem energySystem;
@@ -39,6 +39,7 @@ public class Train : MonoBehaviour
     public void SetDir(Direction dir)
     {
         nextDir = dir;
+        speed = 10;
     }
     void SetTarget(Trace target)
     {
