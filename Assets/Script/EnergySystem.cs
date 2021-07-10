@@ -207,7 +207,7 @@ public class EnergySystem : MonoBehaviour
             }
             timeAccu += Time.deltaTime;
             {
-                if (timeAccu >= time)
+                if (timeAccu >= time || communitcationSO.playerABet == 5 || communitcationSO.playerBBet == 5)
                 {
                     EndEnergyCompete();
                 }
