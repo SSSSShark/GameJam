@@ -27,4 +27,6 @@ public class Communication : ScriptableObject
 
     public bool competeEnergy;
     public bool tugOfWar;
+
+    public Sprite[] arrow;
 }

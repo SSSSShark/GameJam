@@ -93,6 +93,8 @@ public class EnergySystem : MonoBehaviour
     {
         showFlag = false;
         communitcationSO.competeEnergy = false;
+        playerAKeyHint.SetActive(false);
+        playerBKeyHint.SetActive(false);
     }
 
     void ListenKey(KeyCode k,int direct,bool player)//player=trueÎªA£¬·ñÔòÎªB
@@ -275,8 +277,6 @@ public class EnergySystem : MonoBehaviour
             AddEnergy(communitcationSO.playerAReturn, true);
             AddEnergy(communitcationSO.playerBReturn, false);
             communitcationSO.GMToEnergySystem = false;
-            playerAKeyHint.SetActive(false);
-            playerBKeyHint.SetActive(false);
             showFlag = true;
             showTimeAcc = 0;
         }

@@ -8,6 +8,7 @@ Shader "Tools/ArrowUse"
         _MainTex3 ("Purple", 2D) = "white" {}
         _MainTex4 ("Golden", 2D) = "white" {}
         _Lit ("lightness increase", Float) = 1.2
+        _Level ("EnergyLevel", Float) = 1
     }
     SubShader
     {

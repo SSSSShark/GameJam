@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material
+  m_Name: UpA
   m_Shader: {fileID: 4800000, guid: 8e157f80d0a920247bcf24d11aa63a64, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
   m_LightmapFlags: 4
@@ -40,23 +40,23 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8df1ee04f5e49e54a900ea7eef3179cb, type: 3}
+        m_Texture: {fileID: 2800000, guid: afcdf2882f1ee4847934b1b430a1f344, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex1:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 453b620bbf1417b418d8d97db37b2af2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex2:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 8df1ee04f5e49e54a900ea7eef3179cb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex3:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: c2b98c622faf4bb47a3c77c7ed0aacab, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex4:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: a2246501755dd084d8ee857e39e95f1a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -80,6 +80,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _Level: 1
     - _Lit: 1
     - _Metallic: 0
     - _Mode: 3
