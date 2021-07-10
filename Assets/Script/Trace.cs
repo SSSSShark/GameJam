@@ -24,7 +24,7 @@ public class Trace : MonoBehaviour
         others = new List<KeyValuePair<Direction, Trace>>();
         for(int i = 0 ; i < 4; i++)
         {
-            if(Physics.Raycast(transform.position, directionVectors[i], out RaycastHit hit, 10000))
+            if(Physics.Raycast(transform.position + Vector3.up * 2, directionVectors[i], out RaycastHit hit, 10000))
             {
                 Trace hitTrace = hit.transform.GetComponent<Trace>();
                 if(hitTrace)
