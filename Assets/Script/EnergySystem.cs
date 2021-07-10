@@ -17,12 +17,13 @@ public class EnergySystem : MonoBehaviour
     private bool startFlag;
     [SerializeField] private int playerAStatus;
     [SerializeField] private int playerBStatus;
-    private bool[] availableDirect;//四个布尔值，0上，1下，2左，3右
+    private bool[] availableDirect;//四个布尔值，0前，1下，2左，3右
     [Header("拼气时间")]
     [SerializeField] private float time = 2f;
     private float timeAccu;
 
     [SerializeField] private Communication communitcationSO;
+    [SerializeField] private Train train;
 
     public void AddEnergy(int n, bool player)
     {
@@ -150,6 +151,31 @@ public class EnergySystem : MonoBehaviour
         communitcationSO.energySystemToGM = false;
         playerAKeyHint.SetActive(false);
         playerBKeyHint.SetActive(false);
+        train = FindObjectOfType<Train>();
+    }
+
+    Train.Direction GetDir(int dir)
+    {
+        Train.Direction result;
+        switch (dir)
+        {
+            case 0:
+                result = Train.Direction.forward;
+                break;
+            case 1:
+                result = Train.Direction.random;
+                break;
+            case 2:
+                result = Train.Direction.left;
+                break;
+            case 3:
+                result = Train.Direction.right;
+                break;
+            default:
+                result = Train.Direction.random;
+                break;
+        }
+        return result;
     }
 
     // Update is called once per frame
@@ -189,7 +215,7 @@ public class EnergySystem : MonoBehaviour
         }
         else if (communitcationSO.GMToEnergySystem)
         {
-            if (communitcationSO.result > 0)
+            if (communitcationSO.result > 0)//A赢
             {
                 if (playerAStatus < 0)
                     playerAStatus = 0;
@@ -198,8 +224,9 @@ public class EnergySystem : MonoBehaviour
                     playerBStatus = 0;
                 if(!communitcationSO.playerBisBet)
                     playerBStatus--;
+                train.SetDir(GetDir(communitcationSO.playerADirect));
             }
-            else if (communitcationSO.result < 0)
+            else if (communitcationSO.result < 0)//B赢
             {
                 if (playerBStatus < 0)
                     playerBStatus = 0;
@@ -208,8 +235,9 @@ public class EnergySystem : MonoBehaviour
                     playerAStatus = 0;
                 if (!communitcationSO.playerAisBet)
                     playerAStatus--;
+                train.SetDir(GetDir(communitcationSO.playerBDirect));
             }
-            else
+            else//平
             {
                 if (communitcationSO.playerAisBet || communitcationSO.playerBisBet)
                 {
@@ -228,6 +256,7 @@ public class EnergySystem : MonoBehaviour
                     playerBStatus--;
                 }
 
+                train.SetDir(Train.Direction.random);
             }
             AddEnergy(EnergyRewardNum(true), true);
             AddEnergy(EnergyRewardNum(false), false);
