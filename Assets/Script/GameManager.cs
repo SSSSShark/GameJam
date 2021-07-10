@@ -16,10 +16,12 @@ public class GameManager : MonoBehaviour
     public void AWinGame()
     {
         AWin.SetActive(false);
+        communicationSO.gameEnd = true;
     }
     public void BWinGame()
     {
         BWin.SetActive(false);
+        communicationSO.gameEnd = true;
     }
 
     public void Restart()
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
         train = FindObjectOfType<Train>();
         AWin.SetActive(false);
         BWin.SetActive(false);
+        communicationSO.gameEnd = false;
     }
 
     // Update is called once per frame
@@ -42,6 +45,8 @@ public class GameManager : MonoBehaviour
         if (round >= roundNum)
         {
             //endgame;
+
+            communicationSO.gameEnd = true;
         }
     }
     private void LateUpdate()

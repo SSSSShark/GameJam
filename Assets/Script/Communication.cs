@@ -31,4 +31,6 @@ public class Communication : ScriptableObject
     public bool tugOfWar;
 
     public Sprite[] arrow;
+
+    public bool gameEnd;
 }
