@@ -51,7 +51,7 @@ Shader "Tools/ArrowUse"
             {
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
-                clip(col.a-0.99);
+                clip(col.a-0.2);
                 col.rgb*=_Lit;
                 return col;
             }

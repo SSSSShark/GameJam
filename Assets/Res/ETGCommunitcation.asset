@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: ETGCommunitcation
   m_EditorClassIdentifier: 
   energySystemToGM: 0
-  playerADirect: 0
+  playerADirect: 4
   playerABet: 0
-  playerBDirect: 0
+  playerBDirect: 4
   playerBBet: 0
+  availableDirect: 01000101
   GMToEnergySystem: 0
   result: 0
   playerAisBet: 0
@@ -24,14 +25,15 @@ MonoBehaviour:
   playerBisBet: 0
   playerBReturn: 0
   GMToTugSystem: 0
-  tugRatio: 0.5
+  tugRatio: 1
   tugSystemToGM: 0
-  tugResult: 0
+  tugResult: 1
   competeEnergy: 0
   tugOfWar: 0
   arrow:
-  - {fileID: 21300000, guid: afcdf2882f1ee4847934b1b430a1f344, type: 3}
+  - {fileID: 21300000, guid: 64f919a6d687f7643b2e137b1ad095e7, type: 3}
   - {fileID: 21300000, guid: 453b620bbf1417b418d8d97db37b2af2, type: 3}
   - {fileID: 21300000, guid: 8df1ee04f5e49e54a900ea7eef3179cb, type: 3}
   - {fileID: 21300000, guid: c2b98c622faf4bb47a3c77c7ed0aacab, type: 3}
   - {fileID: 21300000, guid: a2246501755dd084d8ee857e39e95f1a, type: 3}
+  gameEnd: 0
