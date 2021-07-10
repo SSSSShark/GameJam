@@ -24,6 +24,10 @@ public class Train : MonoBehaviour
         energySystem = FindObjectOfType<EnergySystem>();
         me = this;
     }
+
+    void Start() {
+        SetTarget(nextTrace);
+    }
     void Update()
     {
         GoForward();

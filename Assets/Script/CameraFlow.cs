@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CameraFlow : MonoBehaviour
 {
     public float time = 1000;
@@ -12,6 +13,7 @@ public class CameraFlow : MonoBehaviour
     void Start() {
         transform.position = (Vector3)(cameraTarget.localToWorldMatrix * offset) + cameraTarget.position;
         transform.LookAt(cameraTarget.position);
+        rotateTime = 0;
     }
 
     void Update()
@@ -24,7 +26,10 @@ public class CameraFlow : MonoBehaviour
             transform.rotation = Quaternion.Slerp(curRotation, transform.rotation, Mathf.SmoothStep(0f, 1f, rotateTime));
             transform.position = Vector3.Lerp(transform.position, targetPosition, Mathf.SmoothStep(0f, 1f, rotateTime));
             rotateTime += Time.deltaTime / time;
-            Debug.Log(rotateTime);
+        }
+        else
+        {
+            transform.position = targetPosition;
         }
     }
 

@@ -42,7 +42,7 @@ public class Trace : MonoBehaviour
         for(int i = 0; i < 4; i++)
         {
             float diff = (directionVectors[i] - vec).sqrMagnitude;
-            if(minDiff < 0)
+            if(minDiff > diff)
             {
                 minDiff = diff;
                 minIndex = i;
@@ -56,10 +56,11 @@ public class Trace : MonoBehaviour
     {
         if(dir == Train.Direction.random)
         {
-            Train.Direction rand = (Train.Direction)Random.Range(0, 3);
+            Train.Direction rand = (Train.Direction)(Random.Range(0, 3));
+            Debug.Log(rand);
             return TrunTo(from, rand);
         }
-        Direction to = Direction.east;
+        Direction to = Direction.north;
         switch(from)
         {
             case Direction.east:
@@ -112,8 +113,8 @@ public class Trace : MonoBehaviour
 
     public Trace GetNext(Train.Direction dir)
     {
-        Vector3 trainToTrace = (Train.me.transform.position - transform.position).normalized;
-        Direction from = VectorToDirection(trainToTrace);
+        Vector3 traceToTrain = (Train.me.transform.position - transform.position).normalized;
+        Direction from = VectorToDirection(traceToTrain);
         Direction to = TrunTo(from, dir);
         foreach(var other in others)
         {
@@ -127,13 +128,16 @@ public class Trace : MonoBehaviour
 
     Trace GetRandNext(Direction from)
     {
-        int index = Random.Range(0, 4) % others.Count;
+        int index = (Random.Range(0, 4)) % others.Count;
         KeyValuePair<Direction, Trace> next = others[index];
-        if(next.Key == from) index = (index + 1) % others.Count;
-        return next.Value;
+        if(next.Key == from)
+        {
+            index = (index + 1) % others.Count;
+        }
+        return others[index].Value;
     }
-    protected virtual void OnTriggerEnter(Collider other) {
-        Debug.Log("cube enter");
+    protected virtual void OnTriggerEnter(Collider other)
+    {
         Train.me.StartEnergyCompete();
         Train.me.speed = 0;
     }
