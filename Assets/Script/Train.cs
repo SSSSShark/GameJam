@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Train : MonoBehaviour
 {
+    static public Train me;
     public enum Direction
     {
         left,
@@ -16,9 +17,12 @@ public class Train : MonoBehaviour
     public float speed;
     Trace nextTrace;
     Direction nextDir = Direction.random;
+    EnergySystem energySystem;
     void Awake() {
         nextTrace = FindObjectOfType<Trace>();
         cameraFlow = FindObjectOfType<CameraFlow>();
+        energySystem = FindObjectOfType<EnergySystem>();
+        me = this;
     }
     void Update()
     {
@@ -41,6 +45,12 @@ public class Train : MonoBehaviour
         nextTrace = target;
         transform.LookAt(target.transform);
         cameraFlow.StartRotate();
+    }
+
+    public void StartEnergyCompete()
+    {
+        bool[] button = {true, false, true, true};
+        energySystem.StartEnergyCompete(button);
     }
 
     void ListenToTrace()

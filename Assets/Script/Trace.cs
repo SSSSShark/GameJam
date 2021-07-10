@@ -19,14 +19,9 @@ public class Trace : MonoBehaviour
         Vector3.forward
     };
 
-    private Train train;
     [SerializeField]
     public List<Trace> otherTraces;
     private List<KeyValuePair<Direction, Trace>> others;
-
-    void Awake() {
-        train = FindObjectOfType<Train>();
-    }
 
     void Start() {
         others = new List<KeyValuePair<Direction, Trace>>();
@@ -117,7 +112,7 @@ public class Trace : MonoBehaviour
 
     public Trace GetNext(Train.Direction dir)
     {
-        Vector3 trainToTrace = (train.transform.position - transform.position).normalized;
+        Vector3 trainToTrace = (Train.me.transform.position - transform.position).normalized;
         Direction from = VectorToDirection(trainToTrace);
         Direction to = TrunTo(from, dir);
         foreach(var other in others)
@@ -139,7 +134,7 @@ public class Trace : MonoBehaviour
     }
     protected virtual void OnTriggerEnter(Collider other) {
         Debug.Log("cube enter");
-        //listenToTrain = true;
+        Train.me.StartEnergyCompete();
     }
     private Vector3 Rotate(Vector3 source, Vector3 axis, float angle)
     {
