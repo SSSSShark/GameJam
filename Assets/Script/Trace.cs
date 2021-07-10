@@ -68,44 +68,121 @@ public class Trace : MonoBehaviour
                 switch(dir)
                 {
                     case Train.Direction.left:
-                        return Direction.south;
+                        to = Direction.south;
+                        break;
                     case Train.Direction.right:
-                        return Direction.north;
+                        to = Direction.north;
+                        break;
                     case Train.Direction.forward:
-                        return Direction.west;
+                        to = Direction.west;
+                        break;
                 }
             break;
             case Direction.west:
                 switch(dir)
                 {
                     case Train.Direction.left:
-                        return Direction.north;
+                        to = Direction.north;
+                        break;
                     case Train.Direction.right:
-                        return Direction.south;
+                        to = Direction.south;
+                        break;
                     case Train.Direction.forward:
-                        return Direction.east;
+                        to = Direction.east;
+                        break;
                 }
             break;
             case Direction.south:
                 switch(dir)
                 {
                     case Train.Direction.left:
-                        return Direction.west;
+                        to = Direction.west;
+                        break;
                     case Train.Direction.right:
-                        return Direction.east;
+                        to = Direction.east;
+                        break;
                     case Train.Direction.forward:
-                        return Direction.north;
+                        to = Direction.north;
+                        break;
                 }
             break;
             case Direction.north:
                 switch(dir)
                 {
                     case Train.Direction.left:
-                        return Direction.east;
+                        to = Direction.east;
+                        break;
                     case Train.Direction.right:
-                        return Direction.west;
+                        to = Direction.west;
+                        break;
                     case Train.Direction.forward:
-                        return Direction.south;
+                        to = Direction.south;
+                        break;
+                }
+            break;
+        }
+        Debug.Log("to:" + to);
+        return to;
+    }
+    Train.Direction GetTrainDir(Direction from, Direction dir)
+    {
+        Train.Direction to = Train.Direction.random;
+        switch(from)
+        {
+            case Direction.east:
+                switch(dir)
+                {
+                    case Direction.south:
+                        to = Train.Direction.left;
+                        break;
+                    case Direction.north:
+                        to = Train.Direction.right;
+                        break;
+                    case Direction.west:
+                        to = Train.Direction.forward;
+                        break;
+                }
+            break;
+            case Direction.west:
+                switch(dir)
+                {
+                    case Direction.north:
+                        to = Train.Direction.left;
+                        break;
+                    case Direction.south:
+                        to = Train.Direction.right;
+                        break;
+                    case Direction.east:
+                        to = Train.Direction.forward;
+                        break;
+                }
+            break;
+            case Direction.south:
+                switch(dir)
+                {
+                    case Direction.west:
+                        to = Train.Direction.left;
+                        break;
+                    case Direction.east:
+                        to = Train.Direction.right;
+                        break;
+                    case Direction.north:
+                        to = Train.Direction.forward;
+                        break;
+                }
+            break;
+            case Direction.north:
+                switch(dir)
+                {
+                    case Direction.east:
+                        to = Train.Direction.left;
+                        break;
+                    case Direction.west:
+                        to = Train.Direction.right;
+                        break;
+                    case Direction.south:
+                        to = Train.Direction.forward;
+                        break;
                 }
             break;
         }
@@ -127,9 +204,22 @@ public class Trace : MonoBehaviour
         return GetRandNext(from);
     }
 
+    public List<Train.Direction> GetCanGo()
+    {
+        Vector3 traceToTrain = (Train.me.transform.position - transform.position).normalized;
+        Direction from = VectorToDirection(traceToTrain);
+        List<Train.Direction> goList = new List<Train.Direction>();
+        foreach(var pair in others)
+        {
+            if(pair.Key == from) continue;
+            else goList.Add(GetTrainDir(from, pair.Key));
+        }
+        return goList;
+    }
+
     Trace GetRandNext(Direction from)
     {
-        int index = (Random.Range(0, 4)) % others.Count;
+        int index = Random.Range(0, others.Count);
         KeyValuePair<Direction, Trace> next = others[index];
         if(next.Key == from)
         {
