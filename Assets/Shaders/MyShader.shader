@@ -19,6 +19,8 @@
     SubShader
     {
 	    Tags { "RenderType" = "Opaque" }
+
+        Cull off
         
 	    CGPROGRAM
         

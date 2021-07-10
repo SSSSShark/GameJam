@@ -53,6 +53,7 @@ public class EnergySystem : MonoBehaviour
         startFlag = true;
         competeTimeAcc = 0f;
         availableDirect = dirct;
+        communitcationSO.availableDirect = availableDirect = dirct;
         if (!playerAKeyHint.activeSelf)
         {
             playerAKeyHint.SetActive(true);

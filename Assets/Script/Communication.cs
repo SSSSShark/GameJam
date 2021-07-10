@@ -11,6 +11,8 @@ public class Communication : ScriptableObject
     public int playerBDirect;
     public int playerBBet;
 
+    public bool[] availableDirect;
+
     public bool GMToEnergySystem;
     public int result;
     public bool playerAisBet;
