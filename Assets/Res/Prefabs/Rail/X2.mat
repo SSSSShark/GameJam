@@ -72,7 +72,7 @@ Material:
     - _RampThreshold: 0.5
     - _RimSmooth: 0.5
     - _RimThreshold: 0.5
-    - _Shininess: 0.5
+    - _Shininess: 0.511
     - _SmoothnessTextureChannel: 0
     - _SpecSmooth: 0.5
     - _SpecularHighlights: 1
@@ -85,5 +85,5 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0.8, g: 0.8, b: 0.8, a: 0.8}
     - _ShadowColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.2}
-    - _SpecularColor: {r: 0.8, g: 0.8, b: 0.8, a: 0.8}
+    - _SpecularColor: {r: 0, g: 0, b: 0, a: 0.8}
   m_BuildTextureStacks: []

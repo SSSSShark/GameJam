@@ -20,7 +20,7 @@
     {
 	    Tags { "RenderType" = "Opaque" }
 
-        Cull off
+        //Cull off
         
 	    CGPROGRAM
         
