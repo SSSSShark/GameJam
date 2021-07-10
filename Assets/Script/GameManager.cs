@@ -15,13 +15,13 @@ public class GameManager : MonoBehaviour
 
     public void AWinGame()
     {
-        AWin.SetActive(false);
+        AWin.SetActive(true);
         communicationSO.gameEnd = true;
         Debug.Log("AWin");
     }
     public void BWinGame()
     {
-        BWin.SetActive(false);
+        BWin.SetActive(true);
         communicationSO.gameEnd = true;
         Debug.Log("BWin");
     }
