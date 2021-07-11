@@ -5,7 +5,7 @@ using UnityEngine;
 public class Train : MonoBehaviour
 {
     [SerializeField]
-    Communication communicationSO;
+    public Communication communicationSO;
     static public Train me;
     public enum Direction
     {
