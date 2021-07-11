@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class BGMManager : MonoBehaviour
 {
+    public enum MusicType
+    {
+        tugKeyDown,
+        UIbutton,
+        arrowLight1,
+        arrowLight2,
+        arrowLight3,
+        arrowLight5,
+        winGame,
+        enterCrossPoint
+    }
+
     [SerializeField]
-    List<AudioClip> audioClips = new List<AudioClip>();
+    List<AudioClip> loopAudioClips = new List<AudioClip>();
+    //List
     AudioSource audioSource;
     public int playIndex;
     void Awake() {
         audioSource = GetComponent<AudioSource>();
-        playIndex = audioClips.IndexOf(audioSource.clip);
+        playIndex = loopAudioClips.IndexOf(audioSource.clip);
     }
-    public void SetBGM(int index)
+    public void SetLoopBGM(int index)
     {
-        index %= audioClips.Count;
-        audioSource.clip = audioClips[index];
+        index %= loopAudioClips.Count;
+        audioSource.clip = loopAudioClips[index];
         audioSource.Play();
         playIndex = index;
     }
@@ -26,13 +39,13 @@ public class BGMManager : MonoBehaviour
         {
             if(playIndex != 0)
             {
-                SetBGM(0);
+                SetLoopBGM(0);
             }
 
         }
         else if(playIndex != 1)
         {
-            SetBGM(1);
+            SetLoopBGM(1);
         }
     }
 }

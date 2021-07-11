@@ -1843,6 +1843,16 @@ PrefabInstance:
       propertyPath: nextTrace
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 511715214627928593, guid: 7902d63725f1a7a4693d950c52d20f25,
+        type: 3}
+      propertyPath: nextTrainBody
+      value: 
+      objectReference: {fileID: 1053622542}
+    - target: {fileID: 603543933498604314, guid: 7902d63725f1a7a4693d950c52d20f25,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1646538349416124370, guid: 7902d63725f1a7a4693d950c52d20f25,
         type: 3}
       propertyPath: m_Name
@@ -1903,6 +1913,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2582986920450656742, guid: 7902d63725f1a7a4693d950c52d20f25,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3043126648855469840, guid: 7902d63725f1a7a4693d950c52d20f25,
         type: 3}
       propertyPath: nextTrace
@@ -1928,10 +1943,20 @@ PrefabInstance:
       propertyPath: nextTrace
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7007433732969489485, guid: 7902d63725f1a7a4693d950c52d20f25,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7693802725820852597, guid: 7902d63725f1a7a4693d950c52d20f25,
         type: 3}
       propertyPath: nextTrace
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130664076686858847, guid: 7902d63725f1a7a4693d950c52d20f25,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7902d63725f1a7a4693d950c52d20f25, type: 3}
@@ -2656,7 +2681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 5
   cameraTarget: {fileID: 141028115}
-  offset: {x: 0, y: 5, z: -5}
+  offset: {x: 0, y: 2.39, z: -12.46}
 --- !u!1 &1035760922
 GameObject:
   m_ObjectHideFlags: 0
@@ -2789,6 +2814,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046619108}
   m_CullTransparentMesh: 1
+--- !u!114 &1053622542 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7717925612024614527, guid: 7902d63725f1a7a4693d950c52d20f25,
+    type: 3}
+  m_PrefabInstance: {fileID: 762509818}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51e4bca7f3e5a4ca90e9f9bd999924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1094447237
 GameObject:
   m_ObjectHideFlags: 0
@@ -4552,6 +4589,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 302909383, guid: 94f044d247015d94980e3031a5992dbe, type: 3}
+      propertyPath: loopAudioClips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 302909383, guid: 94f044d247015d94980e3031a5992dbe, type: 3}
+      propertyPath: loopAudioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1108e2ee678fe59418ba87b1a27064ce, type: 3}
+    - target: {fileID: 302909383, guid: 94f044d247015d94980e3031a5992dbe, type: 3}
+      propertyPath: loopAudioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 35cf7d81b796f5e41893a36ddeb6a8be, type: 3}
     - target: {fileID: 3813961656433005844, guid: 94f044d247015d94980e3031a5992dbe,
         type: 3}
       propertyPath: m_Name
