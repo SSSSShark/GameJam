@@ -4924,6 +4924,11 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 302909383, guid: 94f044d247015d94980e3031a5992dbe, type: 3}
+      propertyPath: soundEffectPrefab
+      value: 
+      objectReference: {fileID: 5645273844404517239, guid: 84c2453bbe967c741a41b54666ecf0af,
+        type: 3}
+    - target: {fileID: 302909383, guid: 94f044d247015d94980e3031a5992dbe, type: 3}
       propertyPath: loopAudioClips.Array.size
       value: 2
       objectReference: {fileID: 0}

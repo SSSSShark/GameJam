@@ -12,25 +12,39 @@ public class BGMManager : MonoBehaviour
         arrowLight2,
         arrowLight3,
         arrowLight5,
-        winGame,
+        winTug,
         enterCrossPoint
     }
-
+    [SerializeField]
+    GameObject soundEffectPrefab;
     [SerializeField]
     List<AudioClip> loopAudioClips = new List<AudioClip>();
+    [SerializeField]
+    List<AudioClip> audioClipPlayonce = new List<AudioClip>();
     //List
     AudioSource audioSource;
     public int playIndex;
+    public static BGMManager me;
     void Awake() {
+        me = this;
         audioSource = GetComponent<AudioSource>();
         playIndex = loopAudioClips.IndexOf(audioSource.clip);
     }
     public void SetLoopBGM(int index)
     {
-        index %= loopAudioClips.Count;
         audioSource.clip = loopAudioClips[index];
         audioSource.Play();
         playIndex = index;
+    }
+
+    public void PlaySoundEffect(MusicType mt)
+    {
+        int index = (int)mt;
+        GameObject se = Instantiate<GameObject>(soundEffectPrefab);
+        AudioSource effectSource = se.GetComponent<AudioSource>();
+        effectSource.clip = audioClipPlayonce[index];
+        effectSource.Play();
+        Destroy(se, effectSource.clip.length + 0.1f);
     }
 
     void Update() {
@@ -47,5 +61,11 @@ public class BGMManager : MonoBehaviour
         {
             SetLoopBGM(1);
         }
+    }
+
+    [ContextMenu("player sound effect")]
+    public void PlayText()
+    {
+        PlaySoundEffect(MusicType.winTug);
     }
 }

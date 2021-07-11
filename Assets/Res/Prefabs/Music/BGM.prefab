@@ -142,5 +142,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loopAudioClips:
   - {fileID: 8300000, guid: 1108e2ee678fe59418ba87b1a27064ce, type: 3}
-  - {fileID: 8300000, guid: 35cf7d81b796f5e41893a36ddeb6a8be, type: 3}
+  - {fileID: 8300000, guid: 84a3ee26b8c411f47a7d6b030c8b9a3a, type: 3}
+  audioClipPlayonce:
+  - {fileID: 8300000, guid: 5ba909682bb6a3c41b5af2081cef5cb6, type: 3}
+  - {fileID: 8300000, guid: 2136b50b8477b88478ecfac79d5134e6, type: 3}
+  - {fileID: 8300000, guid: 93e57cdd01b93cb478bbfcc1f7abf964, type: 3}
+  - {fileID: 8300000, guid: 1c5e8a85c2857cb4ea54e316756e7274, type: 3}
+  - {fileID: 8300000, guid: c174e89743ab8034bb97dafaf2f1e617, type: 3}
+  - {fileID: 8300000, guid: 4b116d92be14a724889e166a3f4b337d, type: 3}
+  - {fileID: 8300000, guid: e286fc9b57aa07b41b1f5a8f7211621c, type: 3}
+  - {fileID: 8300000, guid: a32778c3886f3664d952df0b649c23cd, type: 3}
   playIndex: 0

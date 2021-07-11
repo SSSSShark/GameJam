@@ -127,8 +127,7 @@ public class Train : MonoBehaviour
     {
         for(speedTimer = 0; speedTimer < aTime; speedTimer += Time.deltaTime)
         {
-            speed = Mathf.Lerp(1, 8, speedTimer);
-            Debug.Log(speedTimer);
+            speed = Mathf.Lerp(1, speedOld, Mathf.SmoothStep(0, 1, speedTimer / aTime));
             yield return null;
         }
         speed = speedOld;
