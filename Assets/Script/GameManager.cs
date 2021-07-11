@@ -12,6 +12,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Train train;
     [SerializeField] private GameObject AWin;
     [SerializeField] private GameObject BWin;
+    [SerializeField] Color A;
+    [SerializeField] Color B;
+
+    [SerializeField] Color common1;
+    [SerializeField] Color common2;
+
+
+    [SerializeField] Material x2;
+    [SerializeField] Material train1;
+    [SerializeField] Material train3;
 
     public void AWinGame()
     {
@@ -59,6 +69,14 @@ public class GameManager : MonoBehaviour
             communicationSO.gameEnd = true;
         }
     }
+
+    void ChangeColor()
+    {
+        x2.SetColor("Color", (communicationSO.result > 0) ? A : ((communicationSO.result < 0) ? B : common1));
+        train3.SetColor("Color", (communicationSO.result > 0) ? A : ((communicationSO.result < 0) ? B : common1));
+        train1.SetColor("Albedo", (communicationSO.result > 0) ? A : ((communicationSO.result < 0) ? B : common1));
+    }
+
     private void LateUpdate()
     {
         if (communicationSO.energySystemToGM)
@@ -74,6 +92,7 @@ public class GameManager : MonoBehaviour
                     communicationSO.playerAReturn = (communicationSO.result > 0) ? 0 : Mathf.Max(0, communicationSO.playerABet - 1);
                     communicationSO.playerBReturn = (communicationSO.result < 0) ? 0 : Mathf.Max(0, communicationSO.playerBBet - 1);
                     communicationSO.GMToEnergySystem = true;
+                    ChangeColor();
                 }
                 else
                 {
@@ -86,6 +105,7 @@ public class GameManager : MonoBehaviour
                 communicationSO.playerAReturn = (communicationSO.result > 0) ? 0 : Mathf.Max(0, communicationSO.playerABet - 1);
                 communicationSO.playerBReturn = (communicationSO.result < 0) ? 0 : Mathf.Max(0, communicationSO.playerBBet - 1);
                 communicationSO.GMToEnergySystem = true;
+                ChangeColor();
             }
             round++;
             communicationSO.round = round;
@@ -105,6 +125,7 @@ public class GameManager : MonoBehaviour
                 communicationSO.playerBReturn = communicationSO.playerBBet;
             }
             communicationSO.GMToEnergySystem = true;
+            ChangeColor();
             communicationSO.tugSystemToGM = false;
         }
     }
