@@ -11,7 +11,6 @@ public class BGMManager : MonoBehaviour
         arrowHuman,
         arrowTrain,
         winTug,
-        enterCrossPoint,
         winGame
     }
     [SerializeField]
