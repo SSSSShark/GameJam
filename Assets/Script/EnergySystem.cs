@@ -234,17 +234,13 @@ public class EnergySystem : MonoBehaviour
         {
             if (communitcationSO.tugResult > 0)
             {
-                ListenKeyForFirst(KeyCode.W, 0, true);
-                ListenKeyForFirst(KeyCode.S, 1, true);
+                ListenKeyForFirst(KeyCode.D, 0, true);
                 ListenKeyForFirst(KeyCode.A, 2, true);
-                ListenKeyForFirst(KeyCode.D, 3, true);
             }
             else if(communitcationSO.tugResult < 0)
             {
-                ListenKeyForFirst(KeyCode.UpArrow, 0, false);
-                ListenKeyForFirst(KeyCode.DownArrow, 1, false);
+                ListenKeyForFirst(KeyCode.RightArrow, 0, false);
                 ListenKeyForFirst(KeyCode.LeftArrow, 2, false);
-                ListenKeyForFirst(KeyCode.RightArrow, 3, false);
             }
             competeTimeAcc += Time.deltaTime;
             {
