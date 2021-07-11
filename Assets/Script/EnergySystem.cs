@@ -110,10 +110,12 @@ public class EnergySystem : MonoBehaviour
                     {
                         communitcationSO.playerADirect = direct;
                         communitcationSO.playerABet = 1;
+                        BGMManager.me.PlaySoundEffect(BGMManager.MusicType.arrowHuman);
                     }
                     else if (communitcationSO.playerABet < 1 && communitcationSO.playerABet < playerAEnergy)
                     {
                         communitcationSO.playerABet += 1;
+                        BGMManager.me.PlaySoundEffect(BGMManager.MusicType.arrowHuman);
                     }
                 }
                 else
@@ -122,10 +124,12 @@ public class EnergySystem : MonoBehaviour
                     {
                         communitcationSO.playerBDirect = direct;
                         communitcationSO.playerBBet = 1;
+                        BGMManager.me.PlaySoundEffect(BGMManager.MusicType.arrowTrain);
                     }
                     else if (communitcationSO.playerBBet < 1 && communitcationSO.playerBBet < playerBEnergy)
                     {
                         communitcationSO.playerBBet += 1;
+                        BGMManager.me.PlaySoundEffect(BGMManager.MusicType.arrowTrain);
                     }
                 }
             }
@@ -144,10 +148,12 @@ public class EnergySystem : MonoBehaviour
                     {
                         communitcationSO.playerADirect = direct;
                         communitcationSO.playerABet = 1;
+                        BGMManager.me.PlaySoundEffect(BGMManager.MusicType.arrowHuman);
                     }
                     else if (communitcationSO.playerABet < 3 && communitcationSO.playerABet < playerAEnergy)
                     {
                         communitcationSO.playerABet += 1;
+                        BGMManager.me.PlaySoundEffect(BGMManager.MusicType.arrowHuman);
                     }
                 }
                 else
@@ -156,10 +162,12 @@ public class EnergySystem : MonoBehaviour
                     {
                         communitcationSO.playerBDirect = direct;
                         communitcationSO.playerBBet = 1;
+                        BGMManager.me.PlaySoundEffect(BGMManager.MusicType.arrowTrain);
                     }
                     else if (communitcationSO.playerBBet < 3 && communitcationSO.playerBBet < playerBEnergy)
                     {
                         communitcationSO.playerBBet += 1;
+                        BGMManager.me.PlaySoundEffect(BGMManager.MusicType.arrowTrain);
                     }
                 }
             }

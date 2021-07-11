@@ -21,26 +21,31 @@ public class LaunchManager : MonoBehaviour
 
     public void BeganGame()
     {
+        BGMManager.me.PlaySoundEffect(BGMManager.MusicType.UIbutton);
         EditorSceneManager.LoadScene(1);
     }
 
     public void CloseIntro()
     {
+        BGMManager.me.PlaySoundEffect(BGMManager.MusicType.UIbutton);
         intro.SetActive(false);
     }
 
     public void CloseStuff()
     {
+        BGMManager.me.PlaySoundEffect(BGMManager.MusicType.UIbutton);
         stuff.SetActive(false);
     }
 
     public void OpenIntro()
     {
+        BGMManager.me.PlaySoundEffect(BGMManager.MusicType.UIbutton);
         intro.SetActive(true);
     }
 
     public void OpeneStuff()
     {
+        BGMManager.me.PlaySoundEffect(BGMManager.MusicType.UIbutton);
         stuff.SetActive(true);
     }
 }

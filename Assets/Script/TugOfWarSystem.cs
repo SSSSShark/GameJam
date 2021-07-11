@@ -44,6 +44,7 @@ public class TugOfWarSystem : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 tugging++;
+                BGMManager.me.PlaySoundEffect(BGMManager.MusicType.tugKeyDown);
                 communicationSO.isPressSpace = true;
             }
             else
@@ -53,6 +54,7 @@ public class TugOfWarSystem : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.KeypadPeriod))
             {
                 tugging--;
+                BGMManager.me.PlaySoundEffect(BGMManager.MusicType.tugKeyDown);
                 communicationSO.isPressDot = true;
             }
             else
@@ -66,6 +68,7 @@ public class TugOfWarSystem : MonoBehaviour
                 communicationSO.tugResult = (tugging > 0) ? 1 : ((tugging < 0) ? -1 : 0);
                 showTimeAcc = 0;
                 showFlag = true;
+                BGMManager.me.PlaySoundEffect(BGMManager.MusicType.winTug);
                 Awin.SetActive(communicationSO.tugResult > 0);
                 Bwin.SetActive(communicationSO.tugResult < 0);
             }
