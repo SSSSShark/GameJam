@@ -71,7 +71,7 @@ public class Train : MonoBehaviour
     public void SetDir(Direction dir)
     {
         nextDir = dir;
-        speed = speedOld;
+        ResetSpeed();
     }
     void SetTarget(Trace target)
     {
