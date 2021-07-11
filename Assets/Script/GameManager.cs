@@ -72,9 +72,9 @@ public class GameManager : MonoBehaviour
 
     void ChangeColor()
     {
-        x2.SetColor("Color", (communicationSO.result > 0) ? A : ((communicationSO.result < 0) ? B : common1));
-        train3.SetColor("Color", (communicationSO.result > 0) ? A : ((communicationSO.result < 0) ? B : common1));
-        train1.SetColor("Albedo", (communicationSO.result > 0) ? A : ((communicationSO.result < 0) ? B : common1));
+        x2.SetColor("_EmissionColor", (communicationSO.result > 0) ? A : ((communicationSO.result < 0) ? B : common1));
+        train3.SetColor("_EmissionColor", (communicationSO.result > 0) ? A : ((communicationSO.result < 0) ? B : common1));
+        train1.SetColor("_Color", (communicationSO.result > 0) ? A : ((communicationSO.result < 0) ? B : common1));
     }
 
     private void LateUpdate()
