@@ -35,10 +35,20 @@ public class TugOfWarSystem : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 tugging++;
+                communicationSO.isPressSpace = true;
+            }
+            else
+            {
+                communicationSO.isPressSpace = false;
             }
             if (Input.GetKeyDown(KeyCode.KeypadPeriod))
             {
                 tugging--;
+                communicationSO.isPressDot = true;
+            }
+            else
+            {
+                communicationSO.isPressDot = false;
             }
             communicationSO.tugRatio = ((float)tugging + maxTug) / (2f * maxTug);
             timeAcc += Time.deltaTime;
