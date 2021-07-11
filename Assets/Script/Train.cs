@@ -24,6 +24,7 @@ public class Train : MonoBehaviour
     bool competeFlag = false;
     float speedTimer = 0;
     public float aTime = 0.7f;
+    bool isFirst = true;
     void Awake() {
         //nextTrace = FindObjectOfType<Trace>();
         cameraFlow = FindObjectOfType<CameraFlow>();
@@ -81,6 +82,12 @@ public class Train : MonoBehaviour
 
     public void StartEnergyCompete()
     {
+        if(isFirst)
+        {
+            communicationSO.GMToTugSystem = true;
+            isFirst = false;
+            return;
+        }
         bool[] button = {false, false, false, false};
         List<Direction> canGoes = nextTrace.GetCanGo();
         foreach(var canGo in canGoes)
