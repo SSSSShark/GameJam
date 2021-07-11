@@ -5,7 +5,7 @@ using UnityEditor.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("×î´ó»ØºÏÊý")]
+    [Header("ï¿½ï¿½ï¿½Øºï¿½ï¿½ï¿½")]
     [SerializeField] private int roundNum = 20;
     [SerializeField] Communication communicationSO;
     int round;
@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
         communicationSO.isFirst = false;
         communicationSO.isFirstTug = true;
         communicationSO.isFirstEnergy = true;
+        communicationSO.GMToTugSystem = false;
+        communicationSO.tugOfWar = false;
     }
 
     // Start is called before the first frame update
