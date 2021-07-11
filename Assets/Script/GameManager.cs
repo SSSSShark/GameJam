@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
         AWin.SetActive(false);
         BWin.SetActive(false);
         communicationSO.gameEnd = false;
+        communicationSO.result = 0;
+        ChangeColor();
     }
 
     // Update is called once per frame
