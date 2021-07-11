@@ -27,14 +27,14 @@ public class GameManager : MonoBehaviour
     {
         AWin.SetActive(true);
         communicationSO.gameEnd = true;
-        //BGMManager.me.PlaySoundEffect(BGMManager.MusicType.winGame);
+        BGMManager.me.PlaySoundEffect(BGMManager.MusicType.winGame);
         Debug.Log("AWin");
     }
     public void BWinGame()
     {
         BWin.SetActive(true);
         communicationSO.gameEnd = true;
-        //BGMManager.me.PlaySoundEffect(BGMManager.MusicType.winGame);
+        BGMManager.me.PlaySoundEffect(BGMManager.MusicType.winGame);
         Debug.Log("BWin");
     }
 
