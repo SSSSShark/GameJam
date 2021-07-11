@@ -8,10 +8,8 @@ public class BGMManager : MonoBehaviour
     {
         tugKeyDown,
         UIbutton,
-        arrowLight1,
-        arrowLight2,
-        arrowLight3,
-        arrowLight5,
+        arrowHuman,
+        arrowTrain,
         winTug,
         enterCrossPoint
     }
