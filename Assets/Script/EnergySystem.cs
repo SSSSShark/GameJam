@@ -230,7 +230,15 @@ public class EnergySystem : MonoBehaviour
         }
         else if (communitcationSO.GMToEnergySystem)
         {
-            if (communitcationSO.result > 0)//AÓ®
+            if (communitcationSO.sameDirect)//Í¬·½Ïò
+            {
+                if (playerAStatus < 0)
+                    playerAStatus = 0;
+                if (playerBStatus > 0)
+                    playerBStatus = 0;
+                train.SetDir(GetDir(communitcationSO.playerADirect));
+            }
+            else if (communitcationSO.result > 0)//AÓ®
             {
                 if (playerAStatus < 0)
                     playerAStatus = 0;

@@ -79,9 +79,9 @@ public class GameManager : MonoBehaviour
 
     void ChangeColor()
     {
-        x2.SetColor("_EmissionColor", (communicationSO.result > 0) ? A : ((communicationSO.result < 0) ? B : common1));
-        train3.SetColor("_EmissionColor", (communicationSO.result > 0) ? A : ((communicationSO.result < 0) ? B : common1));
-        train1.SetColor("_Color", (communicationSO.result > 0) ? A : ((communicationSO.result < 0) ? B : common2));
+        x2.SetColor("_EmissionColor", (communicationSO.result > 0 && !communicationSO.sameDirect) ? A : ((communicationSO.result < 0 && !communicationSO.sameDirect) ? B : common1));
+        train3.SetColor("_EmissionColor", (communicationSO.result > 0 && !communicationSO.sameDirect) ? A : ((communicationSO.result < 0 && !communicationSO.sameDirect) ? B : common1));
+        train1.SetColor("_Color", (communicationSO.result > 0 && !communicationSO.sameDirect) ? A : ((communicationSO.result < 0 && !communicationSO.sameDirect) ? B : common2));
     }
 
     private void LateUpdate()
@@ -93,11 +93,14 @@ public class GameManager : MonoBehaviour
 
             if (communicationSO.playerAisBet || communicationSO.playerBisBet)
             {
+                communicationSO.sameDirect = (communicationSO.playerADirect == communicationSO.playerBDirect);
                 communicationSO.result = communicationSO.playerABet - communicationSO.playerBBet;
-                if (communicationSO.result != 0)
+                if (communicationSO.result != 0 || communicationSO.sameDirect)
                 {
                     communicationSO.playerAReturn = (communicationSO.result > 0) ? 0 : Mathf.Max(0, communicationSO.playerABet - 1);
                     communicationSO.playerBReturn = (communicationSO.result < 0) ? 0 : Mathf.Max(0, communicationSO.playerBBet - 1);
+                    communicationSO.playerAReturn = (communicationSO.sameDirect) ? 0 : communicationSO.playerAReturn;
+                    communicationSO.playerBReturn = (communicationSO.sameDirect) ? 0 : communicationSO.playerBReturn;
                     communicationSO.GMToEnergySystem = true;
                     ChangeColor();
                 }
@@ -108,6 +111,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                communicationSO.sameDirect = false;
                 communicationSO.result = 0;
                 communicationSO.playerAReturn = (communicationSO.result > 0) ? 0 : Mathf.Max(0, communicationSO.playerABet - 1);
                 communicationSO.playerBReturn = (communicationSO.result < 0) ? 0 : Mathf.Max(0, communicationSO.playerBBet - 1);
