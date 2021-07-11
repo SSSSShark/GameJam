@@ -231,7 +231,7 @@ public class Trace : MonoBehaviour
     {
         Train.me.StartEnergyCompete();
         Train.me.speed = 0;
-        BGMManager.me.PlaySoundEffect(BGMManager.MusicType.enterCrossPoint);
+        //BGMManager.me.PlaySoundEffect(BGMManager.MusicType.enterCrossPoint);
     }
     private Vector3 Rotate(Vector3 source, Vector3 axis, float angle)
     {
