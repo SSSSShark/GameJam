@@ -16,6 +16,6 @@ public class RoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = (communicationSO.round / 10).ToString() + (communicationSO.round % 10).ToString() + "/" + (communicationSO.roundMax).ToString();
+        text.text = (communicationSO.round / 10).ToString() + (communicationSO.round % 10).ToString();
     }
 }
