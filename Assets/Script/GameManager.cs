@@ -46,6 +46,13 @@ public class GameManager : MonoBehaviour
         EditorSceneManager.LoadScene(0);
     }
 
+    private void OnEnable()
+    {
+        communicationSO.isFirst = false;
+        communicationSO.isFirstTug = true;
+        communicationSO.isFirstEnergy = true;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +69,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //------------------
+        //if (communicationSO.isFirst)
+        //{
+        //    communicationSO.GMToTugSystem = true;
+        //    communicationSO.isFirst = false;
+        //}
+        //-------------------
         if (round >= roundNum)
         {
             if (train.LeftOrRight())
@@ -86,7 +100,17 @@ public class GameManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (communicationSO.energySystemToGM)
+        if (communicationSO.isFirstEnergy && communicationSO.energySystemToGM)
+        {
+            communicationSO.result = communicationSO.playerABet - communicationSO.playerBBet;
+            communicationSO.playerAReturn = (communicationSO.result > 0) ? 0 : Mathf.Max(0, communicationSO.playerABet);
+            communicationSO.playerBReturn = (communicationSO.result < 0) ? 0 : Mathf.Max(0, communicationSO.playerBBet);
+            communicationSO.sameDirect = false;
+            communicationSO.GMToEnergySystem = true;
+
+            communicationSO.isFirstEnergy = false;
+        }
+        else if (communicationSO.energySystemToGM)
         {
             communicationSO.playerAisBet = communicationSO.playerADirect >= 0 && communicationSO.playerADirect <= 3;
             communicationSO.playerBisBet = communicationSO.playerBDirect >= 0 && communicationSO.playerBDirect <= 3;
@@ -125,17 +149,26 @@ public class GameManager : MonoBehaviour
         if (communicationSO.tugSystemToGM)
         {
             communicationSO.result = communicationSO.tugResult;
-            if (communicationSO.result != 0)
+            if (!communicationSO.isFirstTug)
             {
-                communicationSO.playerAReturn = (communicationSO.result > 0) ? 0 : Mathf.Max(0, communicationSO.playerABet - 1);
-                communicationSO.playerBReturn = (communicationSO.result < 0) ? 0 : Mathf.Max(0, communicationSO.playerBBet - 1);
+                if (communicationSO.result != 0)
+                {
+                    communicationSO.playerAReturn = (communicationSO.result > 0) ? 0 : Mathf.Max(0, communicationSO.playerABet - 1);
+                    communicationSO.playerBReturn = (communicationSO.result < 0) ? 0 : Mathf.Max(0, communicationSO.playerBBet - 1);
+                }
+                else
+                {
+                    communicationSO.playerAReturn = communicationSO.playerABet;
+                    communicationSO.playerBReturn = communicationSO.playerBBet;
+                }
+                communicationSO.GMToEnergySystem = true;
             }
             else
             {
-                communicationSO.playerAReturn = communicationSO.playerABet;
-                communicationSO.playerBReturn = communicationSO.playerBBet;
+                bool[] direct = {true, false, true, false };
+                FindObjectOfType<EnergySystem>().StartEnergyCompete(direct);
+                communicationSO.isFirstTug = false;
             }
-            communicationSO.GMToEnergySystem = true;
             ChangeColor();
             communicationSO.tugSystemToGM = false;
         }

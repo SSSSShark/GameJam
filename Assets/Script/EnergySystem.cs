@@ -98,6 +98,40 @@ public class EnergySystem : MonoBehaviour
         playerBKeyHint.SetActive(false);
     }
 
+    void ListenKeyForFirst(KeyCode k, int direct, bool player)//player=true为A，否则为B
+    {
+        if (Input.GetKeyDown(k))
+        {
+            if (availableDirect[direct])
+            {
+                if (player)
+                {
+                    if (communitcationSO.playerADirect != direct)
+                    {
+                        communitcationSO.playerADirect = direct;
+                        communitcationSO.playerABet = 1;
+                    }
+                    else if (communitcationSO.playerABet < 1 && communitcationSO.playerABet < playerAEnergy)
+                    {
+                        communitcationSO.playerABet += 1;
+                    }
+                }
+                else
+                {
+                    if (communitcationSO.playerBDirect != direct)
+                    {
+                        communitcationSO.playerBDirect = direct;
+                        communitcationSO.playerBBet = 1;
+                    }
+                    else if (communitcationSO.playerBBet < 1 && communitcationSO.playerBBet < playerBEnergy)
+                    {
+                        communitcationSO.playerBBet += 1;
+                    }
+                }
+            }
+        }
+    }
+
     void ListenKey(KeyCode k,int direct,bool player)//player=true为A，否则为B
     {
         if (Input.GetKeyDown(k))
@@ -196,7 +230,31 @@ public class EnergySystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startFlag)
+        if(communitcationSO.isFirstEnergy && startFlag)
+        {
+            if (communitcationSO.tugResult > 0)
+            {
+                ListenKeyForFirst(KeyCode.W, 0, true);
+                ListenKeyForFirst(KeyCode.S, 1, true);
+                ListenKeyForFirst(KeyCode.A, 2, true);
+                ListenKeyForFirst(KeyCode.D, 3, true);
+            }
+            else if(communitcationSO.tugResult < 0)
+            {
+                ListenKeyForFirst(KeyCode.UpArrow, 0, false);
+                ListenKeyForFirst(KeyCode.DownArrow, 1, false);
+                ListenKeyForFirst(KeyCode.LeftArrow, 2, false);
+                ListenKeyForFirst(KeyCode.RightArrow, 3, false);
+            }
+            competeTimeAcc += Time.deltaTime;
+            {
+                if (competeTimeAcc >= competeTime || communitcationSO.playerABet == 5 || communitcationSO.playerBBet == 5 || communitcationSO.tugResult==0)
+                {
+                    EndEnergyCompete();
+                }
+            }
+        }
+        else if (startFlag)
         {
             ListenKey(KeyCode.W, 0, true);
             ListenKey(KeyCode.UpArrow, 0, false);

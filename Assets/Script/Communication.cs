@@ -5,6 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="ScriptableObject/Communication",fileName ="CommunitcationSO")]
 public class Communication : ScriptableObject
 {
+    public bool isFirst;
+    public bool isFirstTug;
+    public bool isFirstEnergy;
+
     public bool energySystemToGM;
     public int playerADirect;
     public int playerABet;
