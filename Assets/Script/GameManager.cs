@@ -41,6 +41,11 @@ public class GameManager : MonoBehaviour
         EditorSceneManager.LoadScene(1);
     }
 
+    public void Back()
+    {
+        EditorSceneManager.LoadScene(0);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
