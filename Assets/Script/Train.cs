@@ -33,8 +33,8 @@ public class Train : MonoBehaviour
     }
 
     void Start() {
-        Debug.Log(speed);
         speedOld = speed;
+        speed = 2;
         SetTarget(nextTrace);
     }
     void Update()
