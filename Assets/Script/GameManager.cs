@@ -25,15 +25,15 @@ public class GameManager : MonoBehaviour
 
     public void AWinGame()
     {
-        AWin.SetActive(true);
-        communicationSO.gameEnd = true;
-        Debug.Log("AWin");
+        //AWin.SetActive(true);
+        //communicationSO.gameEnd = true;
+        //Debug.Log("AWin");
     }
     public void BWinGame()
     {
-        BWin.SetActive(true);
-        communicationSO.gameEnd = true;
-        Debug.Log("BWin");
+        //BWin.SetActive(true);
+        //communicationSO.gameEnd = true;
+        //Debug.Log("BWin");
     }
 
     public void Restart()

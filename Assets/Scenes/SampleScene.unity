@@ -2753,7 +2753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 5
   cameraTarget: {fileID: 141028115}
-  offset: {x: 0, y: 2.39, z: -12.46}
+  offset: {x: 0, y: 3.55, z: -4.97}
 --- !u!1 &1035760922
 GameObject:
   m_ObjectHideFlags: 0
