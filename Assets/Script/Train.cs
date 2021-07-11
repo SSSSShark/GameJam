@@ -145,7 +145,7 @@ public class Train : MonoBehaviour
     public bool LeftOrRight()
     {
         Vector3 centerVector = centerPoints[1].transform.position - centerPoints[0].transform.position;
-        Vector3 toTrain = centerPoints[1].transform.position - transform.position;
+        Vector3 toTrain = transform.position - centerPoints[1].transform.position;
         return Vector3.Cross(centerVector, toTrain).y > 0;
     }
 }

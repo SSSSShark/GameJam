@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -41,13 +41,13 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         BGMManager.me.PlaySoundEffect(BGMManager.MusicType.UIbutton);
-        EditorSceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
     }
 
     public void Back()
     {
         BGMManager.me.PlaySoundEffect(BGMManager.MusicType.UIbutton);
-        EditorSceneManager.LoadScene(0);
+        SceneManager.LoadScene(0);
     }
 
     private void OnEnable()

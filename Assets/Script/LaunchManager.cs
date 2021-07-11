@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class LaunchManager : MonoBehaviour
 {
@@ -22,7 +22,7 @@ public class LaunchManager : MonoBehaviour
     public void BeganGame()
     {
         BGMManager.me.PlaySoundEffect(BGMManager.MusicType.UIbutton);
-        EditorSceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
     }
 
     public void CloseIntro()
