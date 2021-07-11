@@ -2441,8 +2441,8 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2719,9 +2719,9 @@ MonoBehaviour:
   AWin: {fileID: 27980880}
   BWin: {fileID: 1235785314}
   A: {r: 1, g: 0.08962262, b: 0.27526796, a: 1}
-  B: {r: 0.74805355, g: 0, b: 1, a: 1}
-  common1: {r: 0, g: 0.95686275, b: 0.8627451, a: 1}
-  common2: {r: 0.45490196, g: 0.8666667, b: 0.8862745, a: 1}
+  B: {r: 0.31866664, g: 0.36815366, b: 0.9372549, a: 1}
+  common1: {r: 1, g: 1, b: 1, a: 1}
+  common2: {r: 1, g: 1, b: 1, a: 1}
   x2: {fileID: 2100000, guid: 6a2a4f67418a04344b985d243fcabfa7, type: 2}
   train1: {fileID: 2100000, guid: aae776dd003d1d34c884bb54e13bff09, type: 2}
   train3: {fileID: 2100000, guid: 648a7474211ba6f4b962812b515f2232, type: 2}

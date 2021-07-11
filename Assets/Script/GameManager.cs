@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
     {
         x2.SetColor("_EmissionColor", (communicationSO.result > 0) ? A : ((communicationSO.result < 0) ? B : common1));
         train3.SetColor("_EmissionColor", (communicationSO.result > 0) ? A : ((communicationSO.result < 0) ? B : common1));
-        train1.SetColor("_Color", (communicationSO.result > 0) ? A : ((communicationSO.result < 0) ? B : common1));
+        train1.SetColor("_Color", (communicationSO.result > 0) ? A : ((communicationSO.result < 0) ? B : common2));
     }
 
     private void LateUpdate()
