@@ -11,7 +11,8 @@ public class BGMManager : MonoBehaviour
         arrowHuman,
         arrowTrain,
         winTug,
-        enterCrossPoint
+        enterCrossPoint,
+        winGame
     }
     [SerializeField]
     GameObject soundEffectPrefab;
